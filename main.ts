@@ -72,69 +72,14 @@ function spieleTeil (noten: number[][], modus: string) {
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     for (let index = 0; index < 10; index++) {
         maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 200)
-        music.play(music.stringPlayable("C5 B A G F E D C ", 1000), music.PlaybackMode.InBackground)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . #
-            . . . # #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . #
-            . . . # #
-            . . # # #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            . . . . #
-            . . . # #
-            . . # # #
-            . # # # #
-            # # # # #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            . . . # #
-            . . # # #
-            . # # # #
-            # # # # #
-            # # # # #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            . . # # #
-            . # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            `)
-        basic.pause(0.1)
-        basic.showLeds(`
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
-            `)
-        maqueen.motorStop(maqueen.Motors.All)
+        music.play(music.stringPlayable("C5 B A G F E D C ", 1000), music.PlaybackMode.UntilDone)
         maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 200)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
-        music.play(music.stringPlayable("C D E F G A B C5 ", 1000), music.PlaybackMode.InBackground)
+        music.play(music.stringPlayable("C D E F G A B C5 ", 1000), music.PlaybackMode.UntilDone)
+        maqueen.motorStop(maqueen.Motors.All)
     }
 })
 function zeigeBalken (frequenz: number) {
